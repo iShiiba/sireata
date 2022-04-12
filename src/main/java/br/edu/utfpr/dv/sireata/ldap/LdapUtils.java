@@ -317,8 +317,7 @@ public class LdapUtils {
 			answer = ctx.search("", "(" + this.varUid.trim() + "=" + uid + ")", controls);
 
 			while (answer.hasMore()) {
-				SearchResult sr = (SearchResult) answer.next();
-				ret = sr.getNameInNamespace();
+				ret = ((SearchResult) answer.next()).getNameInNamespace();
 				break;
 			}
 
