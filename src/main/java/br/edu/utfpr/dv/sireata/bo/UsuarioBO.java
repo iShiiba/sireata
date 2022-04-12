@@ -40,19 +40,22 @@ public class UsuarioBO {
 			throw new Exception(e.getMessage());
 		}
 	}
+
+	public void validarPreenchimentoUsuario(Usuario usuario) throws Exception {
+		if(usuario.getLogin().isEmpty()){
+			throw new Exception("Informe o login.");
+		}
+		if(usuario.getSenha().isEmpty()){
+			throw new Exception("Informe a senha.");
+		}
+		if(usuario.getNome().isEmpty()){
+			throw new Exception("Informe o nome.");
+		}
+	}
 	
 	public int salvar(Usuario usuario) throws Exception{
 		try {
-			if(usuario.getLogin().isEmpty()){
-				throw new Exception("Informe o login.");
-			}
-			if(usuario.getSenha().isEmpty()){
-				throw new Exception("Informe a senha.");
-			}
-			if(usuario.getNome().isEmpty()){
-				throw new Exception("Informe o nome.");
-			}
-			
+			validarPreenchimentoUsuario(usuario);
 			UsuarioDAO dao = new UsuarioDAO();
 			
 			return dao.salvar(usuario);
