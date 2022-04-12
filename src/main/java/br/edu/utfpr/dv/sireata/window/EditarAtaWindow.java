@@ -1076,7 +1076,7 @@ public class EditarAtaWindow extends EditarWindow {
                     	try {
                     		AtaBO bo = new AtaBO();
                     		
-                    		bo.publicar(ata);
+                    		bo.publicar(ata.getIdAta());
                     		
                     		Notification.show("Publicar Ata", "Ata publicada com sucesso.", Notification.Type.WARNING_MESSAGE);
                     		

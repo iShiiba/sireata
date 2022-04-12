@@ -454,10 +454,6 @@ public class AtaBO {
 		}
 	}
 	
-	public void publicar(Ata ata) throws Exception{
-		this.publicar(ata.getIdAta());
-	}
-	
 	public void publicar(int idAta) throws Exception{
 		try{
 			AtaDAO dao = new AtaDAO();
